@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style>
+@font-face { font-family: 'stencil'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_eight@1.0/stencil.woff') format('woff'); font-weight: normal; font-style: normal; }
+		.light{width:10px; height: 50px;
+				background:blue;
+				position: absolute;
+				animation: rr 0.5s forwards ease-in;}
+
+		#back {width: 100%;height: 100vh;}
+		#h1{position: absolute;top: 200px;left: 490px;z-index: 999;font-size: 70px;font-family: 'stencil';}
+
+		
+	</style>
+</head>
+<body>
+	<div id="h1">
+		<h1>파뤼타임</h1>
+	</div>
+	<div class="light" id="rrr"></div>
+	<div id="back"></div>
+	<script>
+	for(var i=0; i<100; i++){
+		var tt = rrr.cloneNode(true);
+		tt.id = i;
+		tt.style.animationDelay = i*0.3 + "s";
+		tt.style.animationDuration = "0.5s";
+		tt.style.left = Math.random()*window.innerWidth + "px";
+		tt.style.width = Math.random()*150 + "px";
+		tt.style.height = Math.random()*50 + "px";
+		tt.style.top = Math.random()*620 + "px";
+		tt.style.background = rgbmake();
+		document.body.appendChild(tt);
+	}
+	setInterval(aa,800);
+	
+	function aa(){
+		location.reload();
+	}
+	
+
+
+	var a = back.cloneNode(true);
+	back.addEventListener("mousemove", function(event) {
+  var color = rgbmake()
+  document.body.style.backgroundColor = color;
+});
+	
+
+	//rgb(32,45,64)
+	
+	function rgbmake(){
+		var a = randomBH(100,255);
+		var b = Math.random()*255;
+		var c = Math.random()*255;
+		var d ="rgb("+a+","+b+","+c+")";
+		return d;
+	}
+
+	function randomBH(min, max) {
+	  min = Math.ceil(min);
+	  max = Math.floor(max);
+	  return Math.floor(Math.random() * (max - min + 1)) + min;
+	}
+
+</script>
+
+</body>
+</html>
